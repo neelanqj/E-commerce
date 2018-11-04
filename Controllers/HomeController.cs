@@ -37,6 +37,24 @@ namespace E_commerce.Controllers
             return Redirect("/customers");
         }
 
+
+        [HttpGet]
+        [Route("/products")]
+        public IActionResult Products(){
+            List<Product> products = _dbContext.Products.ToList();
+            return View(products);
+        }
+
+        [HttpPost]
+        [Route("/products/add")]
+        public IActionResult AddProducts(Product product){
+            _dbContext.Add(product);
+            _dbContext.SaveChanges();
+
+            return Redirect("/products");
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
