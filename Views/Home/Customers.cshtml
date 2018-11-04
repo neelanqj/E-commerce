@@ -1,0 +1,56 @@
+
+<div class="row">
+    <div class="col-md-10">
+        <b><ul>Add new customer:</ul></b><br/>
+        <form action="/customers/add" method="POST">
+            Customer Name: <input type="text" name="Name" />
+            <input type="submit" value="Add" />
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8"></div>
+    <div class="col-md-2">
+        <input class="form-control" id="filter" type="text" placeholder="Filter..." />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-10">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <th>Customer Name</th>
+                <th>Created Date</th>
+                <th>Action</th>
+            </thead>
+            <tbody id="customer_table">
+                @foreach(Customer cust in Model) {
+                @:<tr>
+                    @:<td>
+                        @cust.Name
+                    @:</td>
+                    @:<td>
+                        @cust.CreatedAt.ToString("MMM dd yyyy")
+                    @:</td>
+                    @:<td>
+                        @:<a href="/remove/@cust.CustomerId">Remove</a>
+                    @:</td>
+                @:</tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script  type="text/javascript" defer>
+        $(document).ready(function(){
+        $("#filter").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#customer_table tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        });
+    </script>
+}
