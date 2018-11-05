@@ -25,11 +25,11 @@
     </div>
     <div class="col-md-10">
         @foreach(Product prod in Model) {
-            @:<div class="col">
-                @:<img src="@prod.Image" /><br/>
-                @prod.Name
+            @:<div class="col-md-3">
+                @:<img src="@prod.Image" width="160px" /><br/>
+                    @prod.Name
                 @:<br/>(
-                @prod.Quantity
+                    @prod.Quantity
                 @:left)
             @:</div>
         }

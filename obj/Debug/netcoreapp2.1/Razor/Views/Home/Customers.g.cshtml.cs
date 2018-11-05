@@ -56,7 +56,7 @@ using E_commerce.Models;
             WriteLiteral("\r\n<div class=\"row\">\r\n    <div class=\"col-md-10\">\r\n        <b><ul>Add new customer:</ul></b><br/>\r\n        ");
             EndContext();
             BeginContext(106, 172, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f7fde6bfbf814118ba0fd96f3840481a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0af48598878a40ca83ce1ccc8fe80f44", async() => {
                 BeginContext(150, 121, true);
                 WriteLiteral("\r\n            Customer Name: <input type=\"text\" name=\"Name\" />\r\n            <input type=\"submit\" value=\"Add\" />\r\n        ");
                 EndContext();

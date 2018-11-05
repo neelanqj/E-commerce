@@ -4,9 +4,51 @@
 
 <div class="row">
     <div class="col-md-2">
-
+        <form action="/products" method="POST">
+            <input type="text" name="filter" /><br/>
+            <input type="submit" value="Filter" />
+        </form>
     </div>
     <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-12">
+                @foreach(Product prod in Model.Products) {
+                    @:<div class="col-md-3">
+                        @:<img src="@prod.Image" width="160px" /><br/>
+                            @prod.Name
+                        @:<br/>(
+                            @prod.Quantity
+                        @:left)
+                    @:</div>
+                }
+                <br/><a href="/products">Show More ...</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <ul>Recent Orders</ul><br/>
+                @foreach(Order ord in Model.Orders) {
+                    @ord.Customer.Name 
+                    @: Purchased 
+                    @ord.Quantity
+                    @ord.Product.Name
+                    @:<br/>
+                }
+                <br/><a href="/orders">Show More ...</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <ul>New Customers</ul><br/>
+                @foreach(Customer cust in Model.Customers) {
+                    @cust.Name 
+                    @: joined the store
+                    @:<br/>
+                }
+                <br/><a href="/customers">Show More ...</a>
+            </div>
+        </div>
+
 
     </div>
 </div>
