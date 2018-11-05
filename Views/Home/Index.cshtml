@@ -21,12 +21,16 @@
                         @:left)
                     @:</div>
                 }
-                <br/><a href="/products">Show More ...</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <br/><a href="/products">Show More ...</a><br/><br/>
             </div>
         </div>
         <div class="row">
             <div class="col-md-8">
-                <ul>Recent Orders</ul><br/>
+                <u>Recent Orders</u><br/>
                 @foreach(Order ord in Model.Orders) {
                     @ord.Customer.Name 
                     @: Purchased 
@@ -34,18 +38,29 @@
                     @ord.Product.Name
                     @:<br/>
                 }
-                <br/><a href="/orders">Show More ...</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <br/><a href="/orders">Show More ...</a><br/><br/>
             </div>
         </div>
         <div class="row">
             <div class="col-md-8">
-                <ul>New Customers</ul><br/>
+                <u>New Customers</u><br/>
+                <ul>
                 @foreach(Customer cust in Model.Customers) {
+                    @:<li>
                     @cust.Name 
                     @: joined the store
-                    @:<br/>
+                    @:</li>
                 }
-                <br/><a href="/customers">Show More ...</a>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <br/><a href="/customers">Show More ...</a><br/><br/>
             </div>
         </div>
 

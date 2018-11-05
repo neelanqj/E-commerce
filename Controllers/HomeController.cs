@@ -54,7 +54,13 @@ namespace E_commerce.Controllers
         [HttpPost]
         [Route("/products")]
         public IActionResult Products(string filter = ""){
-            List<Product> products = _dbContext.Products.Where(p=>p.Name.Contains(filter)).ToList();
+            List<Product> products;
+            
+            if (filter != "") {
+                products =_dbContext.Products.Where(p=>p.Name.Contains(filter)).ToList();
+            } else {
+                products =_dbContext.Products.ToList();
+            }
             return View(products);
         }
 
@@ -65,6 +71,11 @@ namespace E_commerce.Controllers
             _dbContext.SaveChanges();
 
             return Redirect("/products");
+        }
+
+        public IActionResult Orders(){
+            OrderViewModel vm = new OrderViewModel();
+            return View();
         }
 
 
