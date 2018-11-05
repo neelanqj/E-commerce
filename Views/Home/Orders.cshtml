@@ -1,0 +1,78 @@
+<div class="row">
+    <div class="col-md-10">
+        <u>Add a new orders</u>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-10">
+        @Html.ValidationSummary()
+        <form action="/orders" method="POST">
+            Customer: <select name="CustomerId">
+                @foreach(Customer cust in Model.Customers){
+                    @:<option value="@cust.CustomerId">
+                        @cust.Name
+                    @:</option>
+                }
+            </select><br/>
+            Order <input type="number" name="Quantity" />
+            <select name="ProductId">
+                @foreach(Product prod in Model.Products){
+                    @:<option value="@prod.ProductId">
+                        @prod.Name
+                    @:</option>
+                }
+            </select><br/>
+            <input type="submit" value="Order" />
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8"></div>
+    <div class="col-md-2">
+        <input class="form-control" id="filter" type="text" placeholder="Filter..." />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-10">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <th>Customer Name</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Date</th>
+            </thead>
+            <tbody id="order_table">
+                @foreach(Order ord in Model.Orders) {
+                @:<tr>
+                    @:<td>
+                        @ord.Customer.Name
+                    @:</td>
+                    @:<td>
+                        @ord.Product.Name
+                    @:</td>
+                    @:<td>
+                        @ord.Quantity
+                    @:</td>
+                    @:<td>
+                        @ord.CreatedAt.ToString("MMM dd YYYY")
+                    @:</td>
+                @:</tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script  type="text/javascript" defer>
+        $(document).ready(function(){
+            $("#filter").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#order_table tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+}

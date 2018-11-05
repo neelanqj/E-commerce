@@ -73,9 +73,39 @@ namespace E_commerce.Controllers
             return Redirect("/products");
         }
 
+        [HttpGet]
+        [Route("/orders")]
         public IActionResult Orders(){
             OrderViewModel vm = new OrderViewModel();
-            return View();
+
+            vm.Customers = _dbContext.Customers.ToList();
+            vm.Orders = _dbContext.Orders.ToList();
+            vm.Products = _dbContext.Products.Where(p => p.Quantity > 0).ToList();
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        [Route("/orders")]
+        public IActionResult Orders(Order order){
+            if(_dbContext.Products.Any(p => p.ProductId == order.ProductId && p.Quantity > order.Quantity)) {
+                Product product = _dbContext.Products.Where(p => p.ProductId == order.ProductId && p.Quantity > order.Quantity).FirstOrDefault();
+                product.Quantity = product.Quantity - order.Quantity;
+                _dbContext.Add(order);
+                _dbContext.SaveChanges();
+            } else {
+                Product product = _dbContext.Products.Where(p => p.ProductId == order.ProductId).FirstOrDefault();
+
+                ModelState.AddModelError("Quantity","There are only " +product.Quantity + " of " +product.Name+ " left, but you ordered " + order.Quantity + " products.");
+            }
+            
+            OrderViewModel vm = new OrderViewModel();
+
+            vm.Customers = _dbContext.Customers.ToList();
+            vm.Orders = _dbContext.Orders.ToList();
+            vm.Products = _dbContext.Products.Where(p => p.Quantity > 0).ToList();
+
+            return View(vm);
         }
 
 

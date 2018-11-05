@@ -28,3 +28,4 @@ C:\Storage\C\E-commerce\obj\Debug\netcoreapp2.1\E-commerce.pdb
 C:\Storage\C\E-commerce\obj\Debug\netcoreapp2.1\E-commerce.csproj.CopyComplete
 C:\Storage\C\E-commerce\obj\Debug\netcoreapp2.1\Razor\Views\Home\Customers.g.cshtml.cs
 C:\Storage\C\E-commerce\obj\Debug\netcoreapp2.1\Razor\Views\Home\Products.g.cshtml.cs
+C:\Storage\C\E-commerce\obj\Debug\netcoreapp2.1\Razor\Views\Home\Orders.g.cshtml.cs

@@ -62,7 +62,7 @@ using E_commerce.Models;
             WriteLiteral("\r\n<div class=\"row\">\r\n    <div class=\"col-md-2\">\r\n        ");
             EndContext();
             BeginContext(102, 162, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "74977dc290bc48acbe6da8d36b4f6892", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "44e6ef0a65ef45148d0a3c6c8ae3859d", async() => {
                 BeginContext(141, 116, true);
                 WriteLiteral("\r\n            <input type=\"text\" name=\"filter\" /><br/>\r\n            <input type=\"submit\" value=\"Filter\" />\r\n        ");
                 EndContext();

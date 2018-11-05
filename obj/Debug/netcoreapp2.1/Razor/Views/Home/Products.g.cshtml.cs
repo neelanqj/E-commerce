@@ -63,7 +63,7 @@ using E_commerce.Models;
             WriteLiteral("\r\n<div class=\"row\">\r\n    <div class=\"col-md-2\">\r\n        ");
             EndContext();
             BeginContext(101, 162, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "915793eebc4546728627c5f7d505adc6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe014a3ba3c442929973817cfde99010", async() => {
                 BeginContext(140, 116, true);
                 WriteLiteral("\r\n            <input type=\"text\" name=\"filter\" /><br/>\r\n            <input type=\"submit\" value=\"Filter\" />\r\n        ");
                 EndContext();
@@ -88,7 +88,7 @@ using E_commerce.Models;
             WriteLiteral("\r\n        <br/><br/>\r\n        <u><b>Add a new product</b></u><br/>\r\n        \r\n        ");
             EndContext();
             BeginContext(349, 544, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0eb7bf4d29fd4a268591f3cdd222350f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1d1e5e222f148359f7b106116bd435f", async() => {
                 BeginContext(392, 494, true);
                 WriteLiteral(@"
             Name:<br/>
